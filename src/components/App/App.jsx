@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../Header/Header.jsx'
+import Header from '../GrocItemHeader/GrocItemHeader'
 import './App.css';
 import GrocItemForm from '../GrocItemForm/GrocItemForm'
 
