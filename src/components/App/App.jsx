@@ -2,7 +2,6 @@
 import React from 'react';
 import axios from 'axios';
 
-
 // Import App Stylesheet
 import './App.css';
 
@@ -19,6 +18,18 @@ function App() {
     // ----------------------------------------
     // ROUTE SECTION - Communicates with server
     // ----------------------------------------
+  
+    const getGrocItems = () => {
+        axios({
+            method: 'GET',
+            url: '/grocery-items'
+        })
+        .then((response) => {
+            console.log(`GET /grocery-items SUCCESS! response is:`, response.data);
+        })
+        .catch((err) => {
+            console.log(`GET /grocery-items request FAILED`, err);
+
 
     // Function for to POST a new grocery item
     const postGrocItem = (grocItemObj) => {
