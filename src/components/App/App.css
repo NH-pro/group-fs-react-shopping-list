@@ -2,3 +2,6 @@ main {
   width: 90%;
   margin: auto;
 }
+.conatiner {
+  border: 5px solid black;
+}
