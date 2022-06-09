@@ -53,6 +53,7 @@ router.get('/', (req, res) => {
     const sqlText = `SELECT * FROM "shopping_list"`;
     pool.query(sqlText)
         .then((result) => {
+            console.log('result row',result.rows);
             res.send(result.rows);
         })
         .catch((error) => {
