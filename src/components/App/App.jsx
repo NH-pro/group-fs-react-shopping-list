@@ -35,6 +35,7 @@ function App() {
         .then((response) => {
             console.log(`GET /grocery-items SUCCESS! response is:`, response.data);
             setGrocItemsList(response.data);
+            console.log('list is here', grocItemsList);
         })
         .catch((err) => {
             console.log(`GET /grocery-items request FAILED`, err);
@@ -94,7 +95,9 @@ function App() {
 
             <GrocItemForm />
            
-            <GrocItemMainComponent />
+            <GrocItemMainComponent 
+                grocItemsList={grocItemsList}
+            />
 
         </div>
     );
