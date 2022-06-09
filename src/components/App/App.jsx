@@ -9,10 +9,10 @@ import GrocItemMainComponent from '../MainGrocItemContainer/GrocItemMainComponen
 
 
 function App() {
-    const deleteOneGrocItem = () => {
+    const deleteOneGrocItem = (grocItemId) => {
         axios({
             method: 'DELETE',
-            url: '/:deleteCard'
+            url: `/${grocItemId}`
         })
         .then((response) => {
             console.log('The delete response', response);
