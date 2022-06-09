@@ -29,6 +29,8 @@ function App() {
         })
         .catch((err) => {
             console.log(`GET /grocery-items request FAILED`, err);
+        })
+    }   
 
 
     // Function for to POST a new grocery item
