@@ -21,7 +21,7 @@ function App() {
     },[]);
 
     // useState controls the grocItemList array.
-    const [grocItemList, setGrocItemsList] = useState([]);
+    const [grocItemsList, setGrocItemsList] = useState([]);
 
     // ----------------------------------------
     // ROUTE SECTION - Communicates with server
