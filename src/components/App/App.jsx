@@ -1,15 +1,24 @@
+// Core imports
 import React from 'react';
 import axios from 'axios';
-import Header from '../GrocItemHeader/GrocItemHeader'
+
+// Import App Stylesheet
 import './App.css';
-import GrocItemForm from '../GrocItemForm/GrocItemForm'
 
 // Import the modules from here
+import Header from '../GrocItemHeader/GrocItemHeader'
+import GrocItemForm from '../GrocItemForm/GrocItemForm'
 import GrocItemMainComponent from '../MainGrocItemContainer/GrocItemMainComponent.jsx';
 
 
+// The main App container for our React app.
+// Contains ALL the components that comprise our core React app within it.
 function App() {
 
+    // ----------------------------------------
+    // ROUTE SECTION - Communicates with server
+    // ----------------------------------------
+  
     const getGrocItems = () => {
         axios({
             method: 'GET',
@@ -20,6 +29,48 @@ function App() {
         })
         .catch((err) => {
             console.log(`GET /grocery-items request FAILED`, err);
+
+
+    // Function for to POST a new grocery item
+    const postGrocItem = (grocItemObj) => {
+        console.log("In the POST route with", grocItemObj)
+
+        axios.post("/", grocItemObj)
+        .then(() => console.log("Successful POST of new grocery item"))
+        .catch(err => {
+            console.log(`
+                Error in POST route in App.jsx:
+            
+                ${err}
+            `)
+        })
+    }
+
+    const deleteOneGrocItem = (grocItemId) => {
+        axios({
+            method: 'DELETE',
+            url: `/${grocItemId}`
+        })
+        .then((response) => {
+            console.log('The delete response', response);
+
+        })
+        .catch((err) => {
+            console.log('Uh oh there is a err', err);
+        });
+    }
+
+    const deleteAllGrocItem = () => {
+        axios({
+            method: 'DELETE',
+            url: '/allGrocItems'
+        })
+        .then((response) => {
+            console.log('The delete response', response);
+
+        })
+        .catch((err) => {
+            console.log('Uh oh there is a err', err);
         });
     }
 
@@ -33,6 +84,8 @@ function App() {
 
         </div>
     );
+
 }
 
 export default App;
+
