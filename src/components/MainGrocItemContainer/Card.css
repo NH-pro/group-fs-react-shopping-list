@@ -1,0 +1,11 @@
+.card {
+    background-color: lightgoldenrodyellow;
+    border: 2px solid black;
+    list-style-position: inside;
+    text-align: center;
+    width: 300px;
+}
+
+.container {
+    display: inline-flex;
+}
