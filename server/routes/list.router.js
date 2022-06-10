@@ -77,7 +77,7 @@ router.get('/', (req, res) => {
     const sqlText = `SELECT * FROM "shopping_list"`;
     pool.query(sqlText)
         .then((result) => {
-            console.log('result row',result.rows);
+            // console.log('result row',result.rows);
             res.send(result.rows);
         })
         .catch((error) => {
@@ -90,6 +90,8 @@ router.get('/', (req, res) => {
 // POST grocItem to the Database
 router.post('/', (req, res) => {
     
+    console.log("In the post with", req.body)
+
     // Pull out the request object as a variable
     const newGrocItem = req.body
 
