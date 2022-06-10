@@ -75,6 +75,9 @@ function GrocItemForm({
                 Similar to jQuery, we now can access the `EVENT`. That means
                 we can find whatever is currently in the `<input>` field and
                 get that `value` using the phrase `event.target.value`.
+
+            Finally, fields that are required in the database ('NOT NULL')
+            I will also set the `<input>` field to have a `required` flag.
             
             */}
             <input
@@ -82,11 +85,13 @@ function GrocItemForm({
                 placeholder="Item name"
                 value={grocName}
                 onChange={(event => setGrocName(event.target.value))}
+                required
             />
             <input
                 type="number"
                 value={grocNumber}
                 onChange={(event => setGrocNumber(event.target.value))}
+                required
             />
             <input
                 type="text"
