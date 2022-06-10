@@ -62,9 +62,10 @@ function App() {
     }
 
     const deleteOneGrocItem = (grocItemId) => {
+        console.log('grocItemId',grocItemId);
         axios({
             method: 'DELETE',
-            url: `/${grocItemId}`
+            url: `/grocery-items/${grocItemId}`
         })
         .then((response) => {
             console.log('The delete response', response);
@@ -97,6 +98,7 @@ function App() {
            
             <GrocItemMainComponent 
                 grocItemsList={grocItemsList}
+                deleteOneGrocItem={deleteOneGrocItem}
             />
 
         </div>
