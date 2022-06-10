@@ -2,6 +2,11 @@
 // main shopping list section of the DOMtem
 import ShowSingleItem from './OneGrocItem'
 import DeleteAllGrocItems from './DeleteAllGrocItems'
+
+// Import our styles
+import './Card.css';
+
+
 function GrocItemMainComponent({grocItemsList,deleteOneGrocItem,deleteAllGrocItem, purchaseGrocItem}) {
     console.log('List item',grocItemsList,deleteOneGrocItem);
     // const removeBtn= () => {
@@ -17,11 +22,11 @@ function GrocItemMainComponent({grocItemsList,deleteOneGrocItem,deleteAllGrocIte
                 <h6>We also sell motor oil --not related to the above...</h6>
                 <br />
                 <p>This is our main component</p>
+
                 <div className="conatiner">
                     <DeleteAllGrocItems 
                         deleteAllGrocItem={deleteAllGrocItem}
                     />
-                    <ul>
                             {grocItemsList.map(grocItemObj => (
                                 <ShowSingleItem
                                     deleteOneGrocItem={deleteOneGrocItem}
@@ -30,7 +35,7 @@ function GrocItemMainComponent({grocItemsList,deleteOneGrocItem,deleteAllGrocIte
                                     purchaseGrocItem={purchaseGrocItem}
                                 />
                             ))}
-                    </ul>
+
 
                     {/* <button onClick={buyBtn}> 
                         Buy

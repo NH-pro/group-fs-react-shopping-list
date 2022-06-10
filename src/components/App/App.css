@@ -1,8 +1,14 @@
-main {
-  width: 90%;
-  margin: auto;
-}
-.conatiner {
-  border: 5px solid black;
+.App {
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
 }
 
+main {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form {
+  text-align: center;
+}
