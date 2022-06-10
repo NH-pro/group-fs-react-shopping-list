@@ -1,7 +1,8 @@
 // Function that handles the all components within the
 // main shopping list section of the DOMtem
 import ShowSingleItem from './OneGrocItem'
-function GrocItemMainComponent({grocItemsList,deleteOneGrocItem, purchaseGrocItem}) {
+import DeleteAllGrocItems from './DeleteAllGrocItems'
+function GrocItemMainComponent({grocItemsList,deleteOneGrocItem,deleteAllGrocItem, purchaseGrocItem}) {
     console.log('List item',grocItemsList,deleteOneGrocItem);
     // const removeBtn= () => {
     //     console.log('Remove');
@@ -17,13 +18,16 @@ function GrocItemMainComponent({grocItemsList,deleteOneGrocItem, purchaseGrocIte
                 <br />
                 <p>This is our main component</p>
                 <div className="conatiner">
+                    <DeleteAllGrocItems 
+                        deleteAllGrocItem={deleteAllGrocItem}
+                    />
                     <ul>
                             {grocItemsList.map(grocItemObj => (
                                 <ShowSingleItem
                                     deleteOneGrocItem={deleteOneGrocItem}
                                     key={grocItemObj.id}
                                     grocItemObj={grocItemObj}
-                                    purchaseGrocItem = {purchaseGrocItem}
+                                    purchaseGrocItem={purchaseGrocItem}
                                 />
                             ))}
                     </ul>

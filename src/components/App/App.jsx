@@ -96,14 +96,14 @@ function App() {
     const deleteAllGrocItem = () => {
         axios({
             method: 'DELETE',
-            url: '/allGrocItems'
+            url: '/grocery-items/allGrocItems'
         })
         .then((response) => {
             console.log('The delete response', response);
             getGrocItems();
         })
         .catch((err) => {
-            console.log('Uh oh there is a err', err);
+            console.log(`Uh oh there is a err, ${err}`);
         });
     }
 
@@ -117,6 +117,7 @@ function App() {
                 grocItemsList={grocItemsList}
                 deleteOneGrocItem={deleteOneGrocItem}
                 purchaseGrocItem={purchaseGrocItem}
+                deleteAllGrocItem={deleteAllGrocItem}
             />
 
         </div>
