@@ -1,7 +1,14 @@
 // Function that handles the all components within the
-// main shopping list section of the DOM
-function GrocItemMainComponent({grocItemsList}) {
-    console.log('List item',grocItemsList);
+// main shopping list section of the DOMtem
+import ShowSingleItem from './OneGrocItem'
+function GrocItemMainComponent({grocItemsList,deleteOneGrocItem}) {
+    console.log('List item',grocItemsList,deleteOneGrocItem);
+    // const removeBtn= () => {
+    //     console.log('Remove');
+    // }
+    // const buyBtn= () => {
+    //     console.log('Buy');
+    // }
     return (
         <>
              <main>
@@ -11,22 +18,27 @@ function GrocItemMainComponent({grocItemsList}) {
                 <p>This is our main component</p>
                 <div className="conatiner">
                     <ul>
-                        
                             {grocItemsList.map(grocItemObj => (
-                                <li key={grocItemObj.id}>
-                                {grocItemObj.name}
-                                </li>
+                                <ShowSingleItem
+                                    deleteOneGrocItem={deleteOneGrocItem}
+                                    key={grocItemObj.id}
+                                    grocItemObj={grocItemObj}
+                                />
                             ))}
-                        
                     </ul>
 
-                    <button id="buyBtn">Buy</button>
-                    <button id="removeBtn">Remove</button>
+                    {/* <button onClick={buyBtn}> 
+                        Buy
+                    </button>
+                    <button onClick={removeBtn}>
+                        Remove
+                    </button> */}
 
                 </div>
             </main>
         </>
     );
+ 
 }
 
 export default GrocItemMainComponent
