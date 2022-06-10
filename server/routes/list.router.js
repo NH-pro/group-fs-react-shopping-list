@@ -23,7 +23,7 @@ router.put(`/:purchasedGrocItem`, (req,res) => {
             res.sendStatus(200);
         })
         .catch((err) => {
-            console.log(`PUT router FAILED`, err);
+            console.log(`PUT router FAILED ${err}`);
             res.sendStatus(500);
         });
 })

@@ -27,13 +27,13 @@ function App() {
     // ROUTE SECTION - Communicates with server
     // ----------------------------------------
 
-    const purchaseGrocItem = (grocItemObj) => {
-        console.log(`In the PUT route with`, grocItemObj);
+    const purchaseGrocItem = (grocItemId) => {
+        console.log(`In the PUT route with`, grocItemId);
 
         axios({
             method: 'PUT',
-            url:`/grocery-items/${grocItemObj.id}`,
-            data: grocItemObj
+            url:`/grocery-items/${grocItemId}`,
+            data: grocItemId
         })
         .then((response) => {
             console.log(`Purchased! PUT route SUCCESS`, response);
@@ -79,9 +79,10 @@ function App() {
     }
 
     const deleteOneGrocItem = (grocItemId) => {
+        console.log('grocItemId',grocItemId);
         axios({
             method: 'DELETE',
-            url: `/${grocItemId}`
+            url: `/grocery-items/${grocItemId}`
         })
         .then((response) => {
             console.log('The delete response', response);
@@ -114,6 +115,8 @@ function App() {
            
             <GrocItemMainComponent 
                 grocItemsList={grocItemsList}
+                deleteOneGrocItem={deleteOneGrocItem}
+                purchaseGrocItem={purchaseGrocItem}
             />
 
         </div>
