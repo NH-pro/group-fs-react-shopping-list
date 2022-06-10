@@ -1,6 +1,6 @@
 
 
-function ShowSingleItem({ grocItemObj,deleteOneGrocItem }) {
+function ShowSingleItem({ grocItemObj, deleteOneGrocItem, purchaseGrocItem}) {
 
     const removeBtn= () => {
         console.log('Remove','the id is',grocItemObj.id);
@@ -8,6 +8,7 @@ function ShowSingleItem({ grocItemObj,deleteOneGrocItem }) {
     }
     const buyBtn= () => {
         console.log('Buy');
+        purchaseGrocItem(grocItemObj.id)
     }
     return (
         <>

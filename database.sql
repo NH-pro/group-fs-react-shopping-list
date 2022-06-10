@@ -10,6 +10,8 @@ CREATE TABLE "shopping_list" (
     "unit" VARCHAR(80)
 );
 
+ALTER TABLE "shopping_list"
+ADD "purchased" BOOLEAN DEFAULT false;
 
 -- Dummy data
 INSERT INTO "shopping_list" 

@@ -26,6 +26,23 @@ function App() {
     // ----------------------------------------
     // ROUTE SECTION - Communicates with server
     // ----------------------------------------
+
+    const purchaseGrocItem = (grocItemId) => {
+        console.log(`In the PUT route with`, grocItemId);
+
+        axios({
+            method: 'PUT',
+            url:`/grocery-items/${grocItemId}`,
+            data: grocItemId
+        })
+        .then((response) => {
+            console.log(`Purchased! PUT route SUCCESS`, response);
+            getGrocItems();
+        })
+        .catch((err) => {
+            console.log(`PUT route FAILED!`, err);
+        });
+    }
   
     const getGrocItems = () => {
         axios({
@@ -99,6 +116,7 @@ function App() {
             <GrocItemMainComponent 
                 grocItemsList={grocItemsList}
                 deleteOneGrocItem={deleteOneGrocItem}
+                purchaseGrocItem={purchaseGrocItem}
             />
 
         </div>
