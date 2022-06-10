@@ -2,7 +2,7 @@ function Form() {
     console.log(`In Form.jsx component!`);
 
     return (
-        <div>
+        <div className="form">
             <h2>Add an Item</h2>
             <form>
                 <input type="text" placeholder="Item name"/>
