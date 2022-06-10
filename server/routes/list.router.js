@@ -4,6 +4,30 @@ const pool = require('../modules/pool.js');
 
 // TODO - Add routes here...
 
+// PUT route to Purchase groc item
+router.put(`/:purchasedGrocItem`, (req,res) => {
+    let grocId = req.params.purchasedGrocItem
+    console.log('In PUT router', grocId);
+    const sqlQuery = `
+        UPDATE "shopping_list"
+        SET "purchased" = true
+        WHERE "id" = $1;
+    `;
+    const sqlParams = [
+        grocId
+    ];
+
+    pool.query(sqlQuery,sqlParams)
+        .then(() => {
+            console.log(`PUT router SUCCESS`);
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log(`PUT router FAILED`, err);
+            res.sendStatus(500);
+        });
+})
+
 // Deletes all GrocItems from database
 router.delete('/allGrocItems', (req, res) => {
 
