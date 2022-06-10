@@ -11,13 +11,11 @@ function GrocItemMainComponent({grocItemsList}) {
                 <p>This is our main component</p>
                 <div className="conatiner">
                     <ul>
-                        
                             {grocItemsList.map(grocItemObj => (
                                 <li key={grocItemObj.id}>
                                 {grocItemObj.name}
                                 </li>
                             ))}
-                        
                     </ul>
 
                     <button id="buyBtn">Buy</button>

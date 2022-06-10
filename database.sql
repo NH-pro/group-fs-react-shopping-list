@@ -10,6 +10,7 @@ CREATE TABLE "shopping_list" (
     "unit" VARCHAR(80)
 );
 
+
 -- Dummy data
 INSERT INTO "shopping_list" 
     ("name","quantity", "unit")
