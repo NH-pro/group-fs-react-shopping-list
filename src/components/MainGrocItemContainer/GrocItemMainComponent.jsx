@@ -23,18 +23,23 @@ function GrocItemMainComponent({grocItemsList,deleteOneGrocItem,deleteAllGrocIte
                 <br />
                 <p>This is our main component</p>
 
-                <div className="conatiner">
+                <div className="container">
                     <DeleteAllGrocItems 
                         deleteAllGrocItem={deleteAllGrocItem}
                     />
-                            {grocItemsList.map(grocItemObj => (
-                                <ShowSingleItem
-                                    deleteOneGrocItem={deleteOneGrocItem}
-                                    key={grocItemObj.id}
-                                    grocItemObj={grocItemObj}
-                                    purchaseGrocItem={purchaseGrocItem}
-                                />
-                            ))}
+
+                    {grocItemsList.map(grocItemObj => (
+                    <div className="card" key={grocItemObj.id}>
+                        <ShowSingleItem
+                            deleteOneGrocItem={deleteOneGrocItem}
+                            key={grocItemObj.id}
+                            grocItemObj={grocItemObj}
+                            purchaseGrocItem={purchaseGrocItem}
+                        />
+                    </div>
+                        ))};
+
+
 
 
                     {/* <button onClick={buyBtn}> 

@@ -8,7 +8,7 @@ function DeleteAllGrocItems ({deleteAllGrocItem}){
     }
     return(
     <button onClick={deleteAllItems}>
-        reset
+        Clear
     </button>
     );
 }
