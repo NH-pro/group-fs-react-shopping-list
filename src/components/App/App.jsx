@@ -64,7 +64,7 @@ function App() {
     const postGrocItem = (grocItemObj) => {
         console.log("In the POST route with", grocItemObj)
 
-        axios.post("/", grocItemObj)
+        axios.post("/grocery-items", grocItemObj)
         .then(() => {
             console.log("Successful POST of new grocery item")
             getGrocItems();
@@ -96,14 +96,14 @@ function App() {
     const deleteAllGrocItem = () => {
         axios({
             method: 'DELETE',
-            url: '/allGrocItems'
+            url: '/grocery-items/allGrocItems'
         })
         .then((response) => {
             console.log('The delete response', response);
             getGrocItems();
         })
         .catch((err) => {
-            console.log('Uh oh there is a err', err);
+            console.log(`Uh oh there is a err, ${err}`);
         });
     }
 
@@ -111,12 +111,17 @@ function App() {
         <div className="App">
             <Header />
 
-            <GrocItemForm />
+            {/* The form component in React, loaded here to show to the DOM */}
+            <GrocItemForm
+                // Pass in the POST function defined in App.jsx
+                postGrocItem={postGrocItem}
+            />
            
             <GrocItemMainComponent 
                 grocItemsList={grocItemsList}
                 deleteOneGrocItem={deleteOneGrocItem}
                 purchaseGrocItem={purchaseGrocItem}
+                deleteAllGrocItem={deleteAllGrocItem}
             />
 
         </div>
